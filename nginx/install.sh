@@ -1,12 +1,9 @@
 #!/bin/bash 
-ARCH=$(uname -i)
-SYSTEM=$(cat /etc/issue | awk -F' ' '{if(NR==1) print $1}')
-VERSION=$(cat /etc/issue | awk -F'[ |.]' '{if(NR==1) print $3}')
 
 cat > /etc/yum.repos.d/nginx.repo <<EOF
 [nginx]
 name=nginx repo
-baseurl=http://nginx.org/packages/centos/${VERSION}/${ARCH}/
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
 gpgcheck=0
 enabled=1
 EOF
