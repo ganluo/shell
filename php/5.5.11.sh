@@ -1,7 +1,7 @@
 #!/bin/bash
 
-groupadd -g 80 www
-adduser -o --home /www --uid 80 --gid 80 -c "Web Application" www
+groupadd -g 80 -r www
+useradd -r -o --home /www --uid 80 --gid 80  -s /sbin/nologin -c "Web Application" www
 
 #automake autoconf
 yum install -y gcc gcc-c++ make patch \
